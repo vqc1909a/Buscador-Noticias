@@ -5,6 +5,7 @@ import Lista from '../components/Lista';
 import Botones from '../components/Botones'
 import Spinner from '../components/Spinner';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const Noticias = ({title}) => {
      const [noticias, changeNoticias] = useState({
@@ -51,7 +52,7 @@ const Noticias = ({title}) => {
                <Formulario changeNoticias={changeNoticias} changeSpinner={changeSpinner} changeTotalPages={changeTotalPages}></Formulario>                            
                {!spinner 
                ? 
-               <Lista noticias={noticias.values}></Lista>
+               <Lista noticias={noticias.values} categoria={noticias.categoria}></Lista>
                :
                <Spinner />
                }
@@ -59,5 +60,7 @@ const Noticias = ({title}) => {
           </section>
      );
 }
- 
+Noticias.propTypes = {
+     title: PropTypes.string.isRequired
+} 
 export default Noticias;

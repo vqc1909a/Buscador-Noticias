@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 const Botones = ({arraypages, changePageActual, pageactual}) => {
      return (
           <div className="botones">
@@ -12,5 +13,9 @@ const Botones = ({arraypages, changePageActual, pageactual}) => {
           </div>
      );
 }
- 
+Botones.propTypes = {
+     arraypages: PropTypes.array.isRequired,
+     changePageActual: PropTypes.func.isRequired,
+     pageactual: PropTypes.number.isRequired
+}
 export default Botones;

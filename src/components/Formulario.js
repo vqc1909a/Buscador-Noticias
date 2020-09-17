@@ -1,15 +1,9 @@
 import React, {useState} from 'react';
 import useNoticia from '../hooks/useCategoria';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import {categorias} from '../helpers';
 const Formulario = ({changeNoticias, changeSpinner, changeTotalPages}) => {
-     const categorias = [
-          {value: 'business', name: 'Negocios'},
-          {value: 'entertainment', name: 'Entretenimiento'},
-          {value: 'health', name: 'Salud'},
-          {value: 'science', name: 'Ciencia'},
-          {value: 'sports', name: 'Deportes'},
-          {value: 'technology', name: 'Tecnología'}
-     ]
      const [categoria, seleccionarNoticia, changeCategoria] = useNoticia('', categorias);
      const [error, changeError] = useState(false);
 
@@ -48,5 +42,9 @@ const Formulario = ({changeNoticias, changeSpinner, changeTotalPages}) => {
           </div> 
      );
 }
- 
+Formulario.propTypes = {
+     changeNoticias: PropTypes.func.isRequired,
+     changeSpinner: PropTypes.func.isRequired,
+     changeTotalPages: PropTypes.func.isRequired
+}
 export default Formulario;

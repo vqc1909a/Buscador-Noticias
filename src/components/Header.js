@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 const Header = ({title}) => {
      return (
           <header className="header py-3 bg-primary">
@@ -10,8 +11,10 @@ const Header = ({title}) => {
                     </div>
                </div>
           </header>
-
      );
+}
+Header.propTypes = {
+     title: PropTypes.string.isRequired
 }
  
 export default Header;
