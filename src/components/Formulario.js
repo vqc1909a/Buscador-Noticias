@@ -16,7 +16,7 @@ const Formulario = ({changeNoticias, changeSpinner, changeTotalPages}) => {
                return null;
           }
           changeError(false);
-          const {data} = await axios.get(`https://newsapi.org/v2/top-headlines?country=MX&category=${categoria}&pageSize=9&page=1&apiKey=${process.env.REACT_APP_API_KEY}`);
+          const {data} = await axios.get(`https://newsapi.org/v2/top-headlines?country=MX&category=${categoria}&pageSize=9&page=1&apiKey=${process.env.REACT_APP_API_KEY}`,  { crossdomain: true });
 
           changeNoticias({
                values: [...data.articles],

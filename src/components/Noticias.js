@@ -33,7 +33,7 @@ const Noticias = ({title}) => {
           if(noticias.categoria){
                (async ()=>{
                     changeSpinner(true);
-                    const {data} = await axios.get(`https://newsapi.org/v2/top-headlines?country=MX&category=${noticias.categoria}&pageSize=9&page=${pageactual}&apiKey=${process.env.REACT_APP_API_KEY}`);
+                    const {data} = await axios.get(`https://newsapi.org/v2/top-headlines?country=MX&category=${noticias.categoria}&pageSize=9&page=${pageactual}&apiKey=${process.env.REACT_APP_API_KEY}`,  { crossdomain: true });
                     changeNoticias({
                          ...noticias,
                          values: [...data.articles]
